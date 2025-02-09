@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wie eröffne ich ein Ticket?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    .header {
+      background-color: #0078D7;
+      color: white;
+      padding: 20px 10px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .description {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.2em;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.5em;
+      color: #0078D7;
+    }
+
+    .details {
+      display: none;
+      text-align: left;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    .details h2 {
+      margin-top: 0;
+      color: #0078D7;
+    }
+
+    .details p {
+      font-size: 1.1em;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #0078D7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Wie eröffne ich ein Ticket?</h1>
+  </div>
+
+  <div class="container">
+    <p class="description">Wähle eine der folgenden Ticketarten aus, um weitere Informationen zu erhalten.</p>
+
+    <div class="cards">
+      <div class="card" onclick="showDetails('incident')">
+        <h3>Incident</h3>
+        <p>Ein Problem, das sofortige Aufmerksamkeit benötigt.</p>
+      </div>
+      <div class="card" onclick="showDetails('request')">
+        <h3>Request</h3>
+        <p>Eine Anfrage für neue Zugriffsrechte oder Software.</p>
+      </div>
+      <div class="card" onclick="showDetails('change')">
+        <h3>Change</h3>
+        <p>Geplante Änderungen an bestehenden Systemen.</p>
+      </div>
+    </div>
+
+    <div id="details" class="details">
+      <h2 id="details-title"></h2>
+      <p id="details-content"></p>
+      <button class="back-button" onclick="hideDetails()">Zurück</button>
+    </div>
+  </div>
+
+  <script>
+    const ticketDetails = {
+      incident: {
+        title: 'Incident',
+        content: 'Ein Incident beschreibt ein unerwartetes Problem, das sofortige Aufmerksamkeit erfordert. Beispiele: Systemabstürze, Fehlermeldungen oder Netzwerkausfälle.'
+      },
+      request: {
+        title: 'Request',
+        content: 'Ein Request bezieht sich auf eine spezifische Anfrage, wie z.B. neue Zugriffsrechte, Softwareinstallationen oder Hardwareanforderungen.'
+      },
+      change: {
+        title: 'Change',
+        content: 'Ein Change betrifft geplante Änderungen an bestehenden Systemen oder Prozessen. Beispiele: Upgrades, neue Funktionen oder Änderungen der Konfiguration.'
+      }
+    };
+
+    function showDetails(type) {
+      const details = ticketDetails[type];
+      document.getElementById('details-title').textContent = details.title;
+      document.getElementById('details-content').textContent = details.content;
+      document.getElementById('details').style.display = 'block';
+      document.querySelector('.cards').style.display = 'none';
+    }
+
+    function hideDetails() {
+      document.getElementById('details').style.display = 'none';
+      document.querySelector('.cards').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
