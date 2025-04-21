@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ticketarten & Anleitungen</title>
   <style>
-    /* Farben und Grunddesign */
     :root {
-      --primary-color: #048276; /* Hauptfarbe Grün */
+      --primary-color: #048276;
       --secondary-color: #f4f4f9;
       --text-color: #333;
-      --highlight-color: #0078D7; /* Blau für Hervorhebungen */
+      --highlight-color: #0078D7;
       --box-shadow: rgba(0, 0, 0, 0.1);
     }
 
@@ -22,7 +21,6 @@
       color: var(--text-color);
     }
 
-    /* Header */
     .header {
       background-color: var(--primary-color);
       color: white;
@@ -36,7 +34,6 @@
       font-size: 2.5em;
     }
 
-    /* Tab Navigation */
     .tabs {
       display: flex;
       justify-content: center;
@@ -65,7 +62,6 @@
       color: white;
     }
 
-    /* Inhalte */
     .tab-content {
       max-width: 900px;
       margin: 0 auto;
@@ -81,7 +77,6 @@
       display: block;
     }
 
-    /* Ticketbeschreibung */
     .ticket-description {
       display: flex;
       align-items: center;
@@ -110,7 +105,6 @@
       color: var(--primary-color);
     }
 
-    /* Anleitung */
     .instruction {
       background-color: var(--secondary-color);
       border-left: 4px solid var(--highlight-color);
@@ -118,13 +112,17 @@
       margin-top: 20px;
     }
 
-    /* Animation */
+    ol, ul {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .ticket-description {
         flex-direction: column;
@@ -134,12 +132,10 @@
 </head>
 <body>
 
-  <!-- Header -->
   <div class="header">
     <h1>Wie eröffne ich ein Ticket?</h1>
   </div>
 
-  <!-- Tab Navigation -->
   <div class="tabs">
     <div class="tab active" onclick="openTab('overview')">Übersicht</div>
     <div class="tab" onclick="openTab('incident')">Incident</div>
@@ -147,22 +143,18 @@
     <div class="tab" onclick="openTab('kleinauftrag')">Kleinauftrag</div>
   </div>
 
-  <!-- Übersicht -->
   <div id="overview" class="tab-content active">
     <h2>Ticketarten</h2>
     <p>Wähle eine der Ticketarten aus, um weitere Informationen zu erhalten:</p>
-
     <div class="ticket-description">
       <div class="ticket-box" onclick="openTab('incident')">
         <h3>Incident</h3>
         <p>Ein Problem, das sofortige Aufmerksamkeit benötigt.</p>
       </div>
-
       <div class="ticket-box" onclick="openTab('request')">
         <h3>Request</h3>
         <p>Eine Anfrage für neue Zugriffsrechte oder Software.</p>
       </div>
-
       <div class="ticket-box" onclick="openTab('kleinauftrag')">
         <h3>Kleinauftrag</h3>
         <p>Kleinere Änderungen oder Anpassungen an bestehenden Systemen.</p>
@@ -170,104 +162,79 @@
     </div>
   </div>
 
-  <!-- Incident Anleitung -->
   <div id="incident" class="tab-content">
     <h2>Incident Ticket</h2>
     <p>Ein Incident beschreibt ein unerwartetes Problem, das sofortige Aufmerksamkeit erfordert.</p>
-
     <div class="instruction">
       <h3>Anleitung: Wie eröffne ich ein Incident Ticket?</h3>
-      <p>Hierfür ist der Aveniq Service Desk, betrieben von unserem Partner PIDAS, 24x7 verfügbar für eure Supportanliegen.
-
- 
-
-Über folgende Kanäle sind sie erreichbar:
- 
-
-Sofia Chatbot: AnyShare (unten rechts auf der Seite)
-Telefon: 0800 55 05 05
-
-Email: hotline@aveniq.ch
-
-Cherwell: Self-Service-Portal</p>
+      <p>Hierfür ist der Aveniq Service Desk, betrieben von unserem Partner PIDAS, 24x7 verfügbar für eure Supportanliegen.</p>
+      <ul>
+        <li><strong>Sofia Chatbot:</strong> über AnyShare (unten rechts auf der Seite)</li>
+        <li><strong>Telefon:</strong> 0800 55 05 05</li>
+        <li><strong>Email:</strong> hotline@aveniq.ch</li>
+        <li><strong>Cherwell:</strong> Self-Service-Portal</li>
+      </ul>
     </div>
   </div>
 
-  <!-- Request Anleitung -->
   <div id="request" class="tab-content">
     <h2>Request Ticket</h2>
     <p>Ein Request bezieht sich auf eine spezifische Anfrage, wie neue Zugriffsrechte oder Softwareinstallationen.</p>
-
     <div class="instruction">
       <h3>Anleitung: Wie eröffne ich ein Request Ticket?</h3>
-      <p>Wie erstelle ich einen Service-Request “Install”?
 
-1. Öffne den Aveniq Webshop.
+      <h4>Service-Request "Install":</h4>
+      <ol>
+        <li>Öffne den Aveniq Webshop.</li>
+        <li>Gehe zu <strong>Hardware</strong> → <strong>Arbeitsplatz</strong> → <strong>Notebook</strong>.</li>
+        <li>Wähle dein gewünschtes Notebook aus.</li>
+      </ol>
+      <p><strong>Hinweis:</strong> Da wir hauptsächlich mit Shared-Desks arbeiten, sind nur noch Notebooks für Installs verfügbar. Bei speziellen Anliegen wende dich bitte an Aleksandar Novic vom IIOF-Team.</p>
 
-2. Navigiere beim Reiter “Hardware” unter “Arbeitsplatz” → “Notebook” .
+      <h4>Service-Request "Dispose":</h4>
+      <ol>
+        <li>Öffne den Aveniq Webshop.</li>
+        <li>Gehe zum Reiter <strong>Support</strong> und wähle <strong>Services zurückgeben</strong>.</li>
+        <li>Wähle das Gerät oder die Berechtigung, die du zurückgeben willst, und klicke auf <strong>Ausgewählte Services zurückgeben</strong>.</li>
+      </ol>
 
-3. Wähle dein gewünschtes Notebook.
-Hinweis: Da wir hauptsächlich mit Shared-Desks arbeiten, sind nur noch Notebooks für Installs verfügbar. Bei Speziellen Anliegen wende dich bitte an Aleksandar Novic vom IIOF-Team.
-
- 
-
-Wie erstelle ich einen Service-Request “Dispose”?
-
-1. Öffne den Aveniq Webshop.
-
-2. Navigiere zum Reiter “Support” und wähle die Option “Services zurückgeben”.
-
-3. Wähle das Notebook und/oder die Software/Berechtigung aus, die du zurückgeben möchtest, und klicke auf “Ausgewählte Services zurückgeben”.
-
- 
-
-Wie erstelle ich einen Service-Request “Software und Berechtigungen”?
-
-1. Öffne den Aveniq Webshop.
-
-2. Navigiere beim Reiter “Software” unter “Lokale Software”.
-
-3. Wähle die Software, welches du installiert haben möchtest und bestelle diese anschliessend.
-→ Für Adminrechte “EWP Administrationsrechte DB” wählen.</p>
+      <h4>Service-Request "Software und Berechtigungen":</h4>
+      <ol>
+        <li>Öffne den Aveniq Webshop.</li>
+        <li>Gehe zum Reiter <strong>Software</strong> → <strong>Lokale Software</strong>.</li>
+        <li>Wähle die gewünschte Software und bestelle sie.</li>
+      </ol>
+      <p><strong>Tipp:</strong> Für Adminrechte bitte <strong>"EWP Administrationsrechte DB"</strong> auswählen.</p>
     </div>
   </div>
 
-  <!-- Kleinauftrag Anleitung -->
   <div id="kleinauftrag" class="tab-content">
     <h2>Kleinauftrag Ticket</h2>
-    <p>Ein Kleinauftrag ist für kleinere Arbeiten vorgesehen, die geplant und zeitlich weniger kritisch sind, z. B.:
-
-• Austausch von Notebook Zubehör (bspw. HP x360 Pen)
-
-• Anpassungen von Arbeitsplätzen
-
-• Installation einer Software, die nicht im Webshop ist und für die Arbeit benötigt wird</p>
-
+    <p>Ein Kleinauftrag ist für kleinere Arbeiten vorgesehen, die geplant und zeitlich weniger kritisch sind.</p>
     <div class="instruction">
       <h3>Anleitung: Wie eröffne ich ein Kleinauftrag Ticket?</h3>
-      <p>Wann verwende ich einen Kleinauftrag?
+      <p><strong>Ein Kleinauftrag eignet sich für kleinere, geplante Aufgaben wie:</strong></p>
+      <ul>
+        <li>Austausch von Notebook-Zubehör (z. B. HP x360 Pen)</li>
+        <li>Anpassungen von Arbeitsplätzen</li>
+        <li>Installation einer Software, die nicht im Webshop verfügbar ist</li>
+      </ul>
 
-Wie erstelle ich einen Kleinauftrag?
-
-1. Öffne das Cherwell Self-Service Portal auf der Webseite "https://selfservice.avectrisonline.ch/CherwellPortal/SelfService"
-
-2. Melde dich mit deinem Account an.
-
-3. Fülle die Felder entsprechend aus und klicke anschliessend auf “Senden”.</p>
+      <h4>Erstellung eines Kleinauftrags:</h4>
+      <ol>
+        <li>Öffne das <a href="https://selfservice.avectrisonline.ch/CherwellPortal/SelfService" target="_blank">Cherwell Self-Service Portal</a>.</li>
+        <li>Melde dich mit deinem Benutzerkonto an.</li>
+        <li>Fülle das Formular aus und klicke auf <strong>Senden</strong>.</li>
+      </ol>
     </div>
   </div>
 
-  <!-- JavaScript für Tabs -->
   <script>
     function openTab(tabId) {
       const tabs = document.querySelectorAll('.tab');
       const contents = document.querySelectorAll('.tab-content');
-
-      // Deaktiviere alle Tabs und Inhalte
       tabs.forEach(tab => tab.classList.remove('active'));
       contents.forEach(content => content.classList.remove('active'));
-
-      // Aktiviere den gewählten Tab und Inhalt
       document.querySelector(`.tab[onclick="openTab('${tabId}')"]`).classList.add('active');
       document.getElementById(tabId).classList.add('active');
     }
